@@ -39,6 +39,7 @@ export const RegisterPage = () => {
           type="password"
           id="password"
           name="password"
+          placeholder="Enter a secure password"
           value={formData.password}
           onChange={handleChange}
         />
@@ -47,6 +48,7 @@ export const RegisterPage = () => {
           type="name"
           id="name"
           name="name"
+          placeholder="Enter your name"
           value={formData.name}
           onChange={handleChange}
         />
