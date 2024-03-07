@@ -1,4 +1,6 @@
 import { useState } from "react";
+import authService from "../api/auth.js";
+import { useNavigate } from "react-router-dom";
 import "./RegisterPage.css";
 
 export const RegisterPage = () => {
@@ -7,6 +9,9 @@ export const RegisterPage = () => {
     password: "",
     name: "",
   });
+
+  const navigate = useNavigate();
+
   const handleChange = (event) => {
     setFormData({ ...formData, [event.target.name]: event.target.value });
   };
@@ -14,6 +19,15 @@ export const RegisterPage = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     console.log(formData);
+    authService
+      .signup(formData)
+      .then((res) => {
+        // console.log(res.data);
+        navigate("/login");
+      })
+      .catch((error) => {
+        console.error(error);
+      });
     setFormData({
       email: "",
       password: "",

@@ -1,9 +1,17 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
 
 const API_URL = import.meta.env.VITE_API_URL;
 
 const AuthContext = React.createContext();
+
+export const useAuth = () => {
+  const context = useContext(AuthContext);
+  if (!context) {
+    throw new Error("useAuth must be used within a AuthProvider");
+  }
+  return context;
+};
 
 function AuthProviderWrapper({ children }) {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -53,12 +61,12 @@ function AuthProviderWrapper({ children }) {
     localStorage.removeItem("authToken");
   };
 
-  const singup = (user) => {
-    try {
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  // const singup = (user) => {
+  //   try {
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
 
   const logOutUser = () => {
     // To log out the user, remove the token

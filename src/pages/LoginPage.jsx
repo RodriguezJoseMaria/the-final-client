@@ -1,19 +1,36 @@
 import { useState } from "react";
-import "./LoginPage.css";
+import authService from "../api/auth.js";
+import { useNavigate } from "react-router-dom";
+// import "./LoginPage.css";
 import { Link } from "react-router-dom";
+import { useAuth } from "../context/auth.context.jsx";
 
 export const LoginPage = () => {
   const [formData, setFormData] = useState({
     email: "",
     password: "",
   });
+
+  const { storeToken } = useAuth();
+
+  const navigate = useNavigate();
+
   const handleChange = (event) => {
     setFormData({ ...formData, [event.target.name]: event.target.value });
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(formData);
+    authService
+      .login(formData)
+      .then((res) => {
+        console.log(res.data);
+        storeToken(res.data.authToken);
+        navigate("/");
+      })
+      .catch((error) => {
+        console.error(error);
+      });
     setFormData({
       email: "",
       password: "",
@@ -48,7 +65,7 @@ export const LoginPage = () => {
 
         <h3>NEED AN ACCOUNT?</h3>
         <button className="register-button">
-          <Link to={"/RegisterPage>CREATE ACCOUNT"}></Link>
+          <Link to="/register">CREATE ACCOUNT </Link>
         </button>
       </form>
     </div>

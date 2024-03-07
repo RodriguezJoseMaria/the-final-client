@@ -1,0 +1,25 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    background: wheat;
+    padding: 15px 20px;
+    align-items: flex-start;
+
+}
+.right-section {
+    display: flex;
+    gap: 15px;
+    list-style: none;
+}
+
+.navbar-image {
+    width: 250px;
+    object-fit: contain;
+}
+
+.gender-section{
+    display: flex;
+    gap: 35px;
+    justify-content: center;
+    padding: 10px;
+}
