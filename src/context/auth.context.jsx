@@ -40,6 +40,7 @@ function AuthProviderWrapper({ children }) {
           setIsLoggedIn(true);
           setIsLoading(false);
           setUser(user);
+          console.log("contexto", user);
         })
 
         .catch((error) => {
