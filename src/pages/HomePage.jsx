@@ -1,9 +1,17 @@
 import Navbar from "../components/Navbar.jsx";
-// import "./HomePage.css";
+import banner from "../../public/images/Carrusel/y3_ss24_chapter3.jpg";
+import Menu from "../components/Menu.jsx";
+import "./HomePage.css";
 
 function HomePage() {
   return (
-    <div>
+    <div
+      className="home"
+      style={{
+        backgroundImage: `url(${banner})`,
+      }}
+    >
+      {/* <Menu /> */}
       <Navbar />
     </div>
   );

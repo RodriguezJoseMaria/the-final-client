@@ -29,7 +29,7 @@ function AuthProviderWrapper({ children }) {
     if (storedToken) {
       // We must send the JWT token in the request's "Authorization" Headers
       axios
-        .get(`${API_URL}/verify`, {
+        .get(`${API_URL}/api/auth/verify`, {
           headers: { Authorization: `Bearer ${storedToken}` },
         })
 

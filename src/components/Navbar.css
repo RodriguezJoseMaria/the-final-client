@@ -1,11 +1,13 @@
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    background: wheat;
-    padding: 15px 20px;
-    align-items: flex-start;
-
+.body {
+    grid-area: body;
 }
+
+.nav {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+}
+
 .right-section {
     display: flex;
     gap: 15px;
