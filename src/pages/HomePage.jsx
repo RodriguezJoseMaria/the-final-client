@@ -1,6 +1,5 @@
-import Navbar from "../components/Navbar.jsx";
 import banner from "../../public/images/Carrusel/y3_ss24_chapter3.jpg";
-import Menu from "../components/Menu.jsx";
+import Container from "../components/Container";
 import "./HomePage.css";
 
 function HomePage() {
@@ -11,8 +10,7 @@ function HomePage() {
         backgroundImage: `url(${banner})`,
       }}
     >
-      {/* <Menu /> */}
-      <Navbar />
+      <Container />
     </div>
   );
 }

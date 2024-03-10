@@ -1,8 +1,8 @@
 import productService from "../api/product.js";
 import { useEffect, useState } from "react";
 import "./AllPage.css";
-import Container from "../components/Container.jsx";
 import { Link, useNavigate } from "react-router-dom";
+import Container from "../components/Container.jsx";
 
 function AllPage() {
   const [products, setProducts] = useState([]);
@@ -21,26 +21,30 @@ function AllPage() {
       .catch((error) => console.error(error));
   }, []);
   return (
-    <div>
-      <Container>
-        <div className="contenido">
-          <span>1</span>
-          <span>2</span>
-          {products.map((product) => (
-            // <Link to={`/product/${product._id}`} state={{product}}>
-            <div key={product._id} onClick={() => handleProductClick(product)}>
-              <img src="" alt="" />
-              <p>{product.nameProduct}</p>
-              <strong>${product.price}</strong>
-            </div>
-            // </Link>
-          ))}
-          <span>3</span>
-          <span>4</span>
-          <span>5</span>
-        </div>
-      </Container>
-    </div>
+    <Container>
+      <div className="contenido">
+        <span>1</span>
+        <span>2</span>
+        {products.map((product) => (
+          <div
+            key={product._id}
+            onClick={() => handleProductClick(product)}
+            className="all-product"
+          >
+            <img
+              src={`../../public/images/All/${product.nameProduct}.jpg`}
+              alt={`${product.nameProduct}`}
+              className="all-products-image"
+            />
+            <p>{product.nameProduct}</p>
+            <strong>${product.price}</strong>
+          </div>
+        ))}
+        <span>3</span>
+        <span>4</span>
+        <span>5</span>
+      </div>
+    </Container>
   );
 }
 

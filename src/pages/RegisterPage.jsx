@@ -1,7 +1,7 @@
 import { useState } from "react";
 import authService from "../api/auth.js";
 import { useNavigate } from "react-router-dom";
-import registerImage from "../../public/images/Tops/Jersey/76509480c_B_07.png";
+import registerImage from "../../public/images/All/Y-3_Nylon_Dress_Black.jpg";
 import "./RegisterPage.css";
 
 export const RegisterPage = () => {
