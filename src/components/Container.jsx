@@ -5,8 +5,8 @@ import { useAuth } from "../context/auth.context";
 import "./Container.css";
 
 function Container({ children }) {
-  const { isLoggedIn, user, logoutUser, isLoading } = useAuth();
-  /* console.log(user, isLoggedIn, isLoading); */
+  const { isLoggedIn, user, logOutUser, isLoading } = useAuth();
+  console.log(isLoggedIn);
 
   const [selectedOption, setSelectedOption] = useState(null);
   console.log(selectedOption);
@@ -43,7 +43,7 @@ function Container({ children }) {
               >
                 MAN
                 {selectedOption === "MAN" && (
-                  <span className="arrow">&#9660;</span>
+                  <span className="arrow">&#8891;</span>
                 )}
               </span>
               <span
@@ -54,7 +54,7 @@ function Container({ children }) {
               >
                 WOMEN
                 {selectedOption === "WOMEN" && (
-                  <span className="arrow">&#9660;</span>
+                  <span className="arrow">&#8891;</span>
                 )}
               </span>
               <span
@@ -65,18 +65,21 @@ function Container({ children }) {
               >
                 UNISEX
                 {selectedOption === "UNISEX" && (
-                  <span className="arrow">&#9660;</span>
+                  <span className="arrow">&#8891;</span>
                 )}
               </span>
             </div>
             <ul className={`sub-options ${selectedOption ? "show" : ""}`}>
               <li>TOP</li>
               <li>OUTWEAR</li>
-              <li>TROUSER</li>
+              <li>PANTS</li>
+              <li>SKIRT</li>
+              <li>ONE - PIECE</li>
+              <li>ACCESSORIES</li>
+              <Link className="navbar-link" to="/all">
+                <span className="option-name">ALL</span>
+              </Link>
             </ul>
-            <Link className="navbar-link" to="/all">
-              <span className="option-name">ALL</span>
-            </Link>
           </div>
         </div>
       </div>
@@ -85,11 +88,11 @@ function Container({ children }) {
           <ul className="right-section">
             {isLoggedIn ? (
               <>
-                {/* {!isLoading && <li>Hello {user.name}</li>} */}
+                <li>ACCOUNT</li>
                 <Link
                   to="/"
                   className="navbar-link"
-                  onClick={() => logoutUser()}
+                  onClick={() => logOutUser()}
                 >
                   LOGOUT
                 </Link>

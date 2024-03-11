@@ -1,0 +1,9 @@
+.register-sidebar {
+    grid-area: sidebar;
+    display: flex;
+    flex-direction: column;
+    /* padding-right: 20px; */
+    background-color: none;
+    color: #333;
+    position: relative;
+}

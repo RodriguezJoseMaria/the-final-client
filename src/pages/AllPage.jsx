@@ -23,8 +23,6 @@ function AllPage() {
   return (
     <Container>
       <div className="contenido">
-        <span>1</span>
-        <span>2</span>
         {products.map((product) => (
           <div
             key={product._id}
@@ -40,9 +38,6 @@ function AllPage() {
             <strong>${product.price}</strong>
           </div>
         ))}
-        <span>3</span>
-        <span>4</span>
-        <span>5</span>
       </div>
     </Container>
   );

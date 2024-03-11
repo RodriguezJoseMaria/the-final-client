@@ -11,7 +11,7 @@ export const LoginPage = () => {
     password: "",
   });
 
-  const { storeToken } = useAuth();
+  const { storeToken, authenticateUser } = useAuth();
 
   const navigate = useNavigate();
 
@@ -24,9 +24,10 @@ export const LoginPage = () => {
     authService
       .login(formData)
       .then((res) => {
-        console.log(res.data);
+        console.log("login", res);
         storeToken(res.data.authToken);
-        navigate("/");
+        authenticateUser();
+        // navigate("/");
       })
       .catch((error) => {
         console.error(error);
@@ -59,7 +60,9 @@ export const LoginPage = () => {
           value={formData.password}
           onChange={handleChange}
         />
-        <button className="login-button">LOG IN</button>
+        <button className="login-button">
+          <Link to="/">LOG IN</Link>
+        </button>
 
         <hr />
 
