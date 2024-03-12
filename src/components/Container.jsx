@@ -88,7 +88,7 @@ function Container({ children }) {
           <ul className="right-section">
             {isLoggedIn ? (
               <>
-                <li>HELLO JOSE</li>
+                {/* <li>HELLO JOSE</li> */}
                 <Link
                   to="/"
                   className="navbar-link"
@@ -105,8 +105,10 @@ function Container({ children }) {
               </li>
             )}
 
-            <li>
-              <Link to="/cart">SHOPPING BAG</Link>
+            <li className="shooping-bag">
+              <Link to="/cart" style={{ color: "black" }}>
+                SHOPPING BAG
+              </Link>
             </li>
           </ul>
         </nav>

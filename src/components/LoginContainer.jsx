@@ -2,10 +2,10 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import logo from "../../public/images/Logo/Y-3-Logo.png";
 import { useAuth } from "../context/auth.context";
-import registerImage from "../../public/images/Register/register.jpg";
-import "./AuthContainer.css";
+import registerImage from "../../public/images/LogIn/login.jpg";
+import "./LoginContainer.css";
 
-function AuthContainer({ children }) {
+function LoginContainer({ children }) {
   const { isLoggedIn, user, logoutUser, isLoading } = useAuth();
   /* console.log(user, isLoggedIn, isLoading); */
 
@@ -123,4 +123,4 @@ function AuthContainer({ children }) {
   );
 }
 
-export default AuthContainer;
+export default LoginContainer;

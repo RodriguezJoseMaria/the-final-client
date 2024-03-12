@@ -2,7 +2,6 @@ import { useState } from "react";
 import authService from "../api/auth.js";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
-// import Container from "../components/Container.jsx";
 import AuthContainer from "../components/AuthContainer.jsx";
 
 import "./RegisterPage.css";
@@ -42,14 +41,11 @@ export const RegisterPage = () => {
   return (
     <AuthContainer>
       <div className="register-container">
-        {/* <div className="image-container">
-          <img src={registerImage} alt="Register Image" />
-        </div> */}
         <div className="form-container">
           <form className="register-form" onSubmit={handleSubmit}>
             <h2>PERSONAL DETAILS</h2>
             <div className="form-group">
-              <label htmlFor="email"> Email</label>
+              <label htmlFor="email"> E-mail</label>
               <input
                 type="email"
                 id="email"
@@ -81,8 +77,13 @@ export const RegisterPage = () => {
                 onChange={handleChange}
               />
             </div>
-            <button className="register-button">
-              <Link to="/login">CREATE ACCOUNT </Link>
+            <button
+              className="register-button"
+              style={{ textDecoration: "none" }}
+            >
+              <Link to="/register" style={{ color: "black" }}>
+                CREATE ACCOUNT
+              </Link>
             </button>
           </form>
         </div>

@@ -16,9 +16,6 @@
     position: relative;
 }
 
-.sidebar.show {
-    /* background-color: #d6d6d6; */
-}
 
 .body {
     grid-area: body;
@@ -121,6 +118,10 @@
     /* Opcionalmente, también puedes usar padding para separar los elementos internamente */
     /* padding: 5px; */
     transition: color 0.3s; /* Transición suave del color */
+  }
+
+  .shooping-bag:hover{
+    color: #ff5733; /* Cambia el color al pasar el cursor sobre el elemento */
   }
   
   .sub-options li:hover {
