@@ -2,6 +2,7 @@ import { useLocation } from "react-router-dom";
 import Container from "../components/Container";
 import "./ProductDetail.css";
 import { useState } from "react";
+import { useCart } from "../context/cart.context";
 
 function ProductDetail() {
   const location = useLocation();
@@ -10,10 +11,17 @@ function ProductDetail() {
 
   const [selectedSize, setSelectedSize] = useState(null);
 
+  const { addProductToCart } = useCart();
+
   const handleSizeSelection = (size) => {
     setSelectedSize(size);
   };
-  console.log(selectedSize);
+
+  const handleAddToCart = () => {
+    addProductToCart(product);
+  };
+  console.log(product);
+
   return (
     <Container>
       <div className="product-card">
@@ -48,7 +56,9 @@ function ProductDetail() {
               ))}
             </div>
           </div>
-          <button className="product-button">ADD TO BAG</button>
+          <button className="product-button" onClick={handleAddToCart}>
+            ADD TO BAG
+          </button>
         </div>
       </div>
     </Container>

@@ -26,7 +26,7 @@ export const RegisterPage = () => {
     authService
       .signup(formData)
       .then((res) => {
-        // console.log(res.data);
+        console.log(res.data);
         navigate("/login");
       })
       .catch((error) => {

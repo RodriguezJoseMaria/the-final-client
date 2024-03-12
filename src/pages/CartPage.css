@@ -1,0 +1,22 @@
+.cart-contenido {
+    margin-top: 50px;
+    display: grid;
+    grid-template-rows: repeat(auto-fit, 1fr);
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+}
+
+.cart-products-image{
+    width: 300px;
+}
+
+.cart-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    align-items: center;
+    justify-content: center;
+    
+
+
+}

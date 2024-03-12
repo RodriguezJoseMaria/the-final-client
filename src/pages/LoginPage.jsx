@@ -24,10 +24,10 @@ export const LoginPage = () => {
     authService
       .login(formData)
       .then((res) => {
-        console.log("login", res);
+        // console.log("login", res);
         storeToken(res.data.authToken);
         authenticateUser();
-        // navigate("/");
+        navigate("/");
       })
       .catch((error) => {
         console.error(error);
@@ -60,9 +60,7 @@ export const LoginPage = () => {
           value={formData.password}
           onChange={handleChange}
         />
-        <button className="login-button">
-          <Link to="/">LOG IN</Link>
-        </button>
+        <button className="login-button">LOG IN</button>
 
         <hr />
 

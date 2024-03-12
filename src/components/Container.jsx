@@ -88,7 +88,7 @@ function Container({ children }) {
           <ul className="right-section">
             {isLoggedIn ? (
               <>
-                <li>ACCOUNT</li>
+                <li>HELLO JOSE</li>
                 <Link
                   to="/"
                   className="navbar-link"
@@ -105,8 +105,9 @@ function Container({ children }) {
               </li>
             )}
 
-            <li>SHOPPING BAG</li>
-            {/* <Link to="/login">SHOPPING BAG</Link> */}
+            <li>
+              <Link to="/cart">SHOPPING BAG</Link>
+            </li>
           </ul>
         </nav>
         <div className="contenido">{children}</div>
