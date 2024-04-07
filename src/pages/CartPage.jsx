@@ -3,8 +3,9 @@ import { useCart } from "../context/cart.context";
 import "./CartPage.css";
 
 function CartPage() {
-  const { cart } = useCart();
+  const { cart, decreaseQuantity, increaseQuantity } = useCart();
   console.log(cart);
+
   return (
     <Container>
       <div className="cart-layout">
@@ -23,6 +24,21 @@ function CartPage() {
                 />
                 <p>{product.nameProduct}</p>
                 <strong>${product.price}</strong>
+                <div>
+                  <button
+                    className="size-button"
+                    onClick={() => decreaseQuantity(product._id)}
+                  >
+                    -
+                  </button>
+                  <button className="size-button">{product.quantity}</button>
+                  <button
+                    className="size-button"
+                    onClick={() => increaseQuantity(product._id)}
+                  >
+                    +
+                  </button>
+                </div>
               </div>
             ))}
         </div>

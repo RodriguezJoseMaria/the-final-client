@@ -2,11 +2,14 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import logo from "../../public/images/Logo/Y-3-Logo.png";
 import { useAuth } from "../context/auth.context";
+import { useCart } from "../context/cart.context";
 import "./Container.css";
 
 function Container({ children }) {
   const { isLoggedIn, user, logOutUser, isLoading } = useAuth();
   console.log(isLoggedIn);
+
+  const { cart } = useCart();
 
   const [selectedOption, setSelectedOption] = useState(null);
   console.log(selectedOption);
@@ -105,10 +108,13 @@ function Container({ children }) {
               </li>
             )}
 
-            <li className="shooping-bag">
-              <Link to="/cart" style={{ color: "black" }}>
-                SHOPPING BAG
-              </Link>
+            <li>
+              <div className="shopping-bag">
+                <Link to="/cart" style={{ color: "black" }}>
+                  SHOPPING BAG
+                </Link>
+                <div className="shopping-quantity">{cart.length}</div>
+              </div>
             </li>
           </ul>
         </nav>

@@ -3,6 +3,7 @@ import Container from "../components/Container";
 import "./ProductDetail.css";
 import { useState } from "react";
 import { useCart } from "../context/cart.context";
+import { useNavigate } from "react-router-dom";
 
 function ProductDetail() {
   const location = useLocation();
@@ -20,6 +21,14 @@ function ProductDetail() {
   const handleAddToCart = () => {
     addProductToCart(product);
   };
+
+  const handleProcessOrder = () => {
+    handleAddToCart();
+    history.push("/cart");
+  };
+
+  const navigate = useNavigate();
+
   console.log(product);
 
   return (
@@ -58,6 +67,15 @@ function ProductDetail() {
           </div>
           <button className="product-button" onClick={handleAddToCart}>
             ADD TO BAG
+          </button>
+          <button
+            className="product-button"
+            onClick={() => {
+              handleAddToCart();
+              navigate("/cart");
+            }}
+          >
+            PROCESS ORDER
           </button>
         </div>
       </div>

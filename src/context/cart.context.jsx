@@ -23,10 +23,46 @@ function CartProviderWrapper({ children }) {
       .catch((error) => {
         console.error(error);
       });
-    setCart([...cart, product]);
+    setCart((prevCart) => {
+      let newCart = [...prevCart];
+      const productIndex = newCart.findIndex((pr) => pr._id === product._id);
+      if (productIndex !== -1) {
+        newCart[productIndex].quantity += 1;
+      } else {
+        product.quantity = 1;
+        newCart = [...cart, product];
+      }
+      return newCart;
+    });
   };
+
+  const decreaseQuantity = (productId) => {
+    let newCart = [...cart];
+    const productIndex = newCart.findIndex((pr) => pr._id === productId);
+    // console.log(productIndex);
+    if (productIndex !== -1) {
+      newCart[productIndex].quantity -= 1;
+      if (newCart[productIndex].quantity <= 0) {
+        newCart.splice(productIndex, 1);
+      }
+    }
+    setCart(newCart);
+  };
+
+  const increaseQuantity = (productId) => {
+    let newCart = [...cart];
+    const productIndex = newCart.findIndex((pr) => pr._id === productId);
+    // console.log(productIndex);
+    if (productIndex !== -1) {
+      newCart[productIndex].quantity += 1;
+    }
+    setCart(newCart);
+  };
+
   return (
-    <CartContext.Provider value={{ cart, addProductToCart }}>
+    <CartContext.Provider
+      value={{ cart, addProductToCart, decreaseQuantity, increaseQuantity }}
+    >
       {children}
     </CartContext.Provider>
   );
